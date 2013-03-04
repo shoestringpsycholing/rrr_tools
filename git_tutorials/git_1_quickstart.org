@@ -5,7 +5,7 @@
 #+DESCRIPTION:
 #+KEYWORDS:
 #+LANGUAGE:  en
-#+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
 #+LATEX_HEADER: \usepackage{baskervald}
 
@@ -228,7 +228,7 @@ Here's how that works. You just go to the top folder in the repo, and add a text
 junk/
 #+end_example
 
-The asterisk is a "wildcard" character, so the first line says "anything that ends with a tilde."  The second line means "anything that ends with .aux". And the third line says "the folder called junk (and all its contents)".  All of the files matching these descriptions will be completely invisible to git. This is a very flexible and powerful way to keep your git repos clean and to simplify your processes of adding and tracking files.  You can also name particular files, if there's some reason there are specific files that you want to keep around but always ignore.
+The asterisk is a "wildcard" character, so the first line says "anything that ends with a tilde."  The second line means "anything that ends with .aux". And the third line says "the folder called junk (and all its contents)".  All of the files matching these descriptions will be completely invisible to git, if you updated your =.gitignore= file to contain these lines. This is a very flexible and powerful way to keep your git repos clean and to simplify your processes of adding and tracking files.  You can also name particular files, if there's some reason there are specific files that you want to keep around but always ignore.
 ** =git config=
 In the beginning, we used =git config= to set up your name and email, because git uses that information when making commits. But there are lots of other things you can set with =git config=, so you may want to check out the help on it, to see if anything would make your life easier.  Personally, I like to use Emacs to edit text, and you can do the same if you run the following command:
 

@@ -1,3 +1,19 @@
+#+TITLE:     Git Overview
+#+AUTHOR:    Scott Jackson
+#+EMAIL:     shoestringpsycholing1@gmail.com
+#+DATE:      Last updated: \today
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+LATEX_HEADER: \usepackage{baskervald}
+
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
 * What is git?
 Git is a type of Version Control Software (VCS). It is open-source, cross-platform, and free, meaning you can download it at no cost for Windows, Mac, or Linux from the website at http://git-scm.com/, but you can also download the source code, and see exactly how it ticks (and modify it for your own use, or contribute changes that might get incorporated in future versions, etc.), if you're interested.
 * Why version control for research?
@@ -20,15 +36,15 @@ I highly recommend that if you are interested in making your research more repro
 
 - Learning the basics of git for everyday use is very simple.
 - You don't have to change /anything else/ about your current workflow to use git. You can continue writing documents in Word, doing analysis in SPSS, or whatever.  Git does not make you change everything about your work habits.
-- UYsing git /does/ force you to make a few simple changes to your work habits, but these are good habits to have, and are habits that will greatly improve the reproducibiity of your work. They are habits that will take practice, and git gives you the opportunity to practice, without penalizing you if you slip up now and then.
+- Using git /does/ force you to make a few simple changes to your work habits, but these are good habits to have, and are habits that will greatly improve the reproducibility of your work. They are habits that will take practice, and git gives you the opportunity to practice, without penalizing you if you slip up now and then.
 - If you're not used to command-line programs, git gives you some good practice at that in a very simple context.
 
 In short, starting to use a VCS like git is the easiest way to /immediately/ start making your research more reproducible.
 * Why git?
-Git is not the only VCS, not by a long shot.  There are many many other alternatives out there, and while some are expensive proprietary software aimed at large companies, some good options are also free and open-source, like Subversion or Mercurial.  I am still a relative novice to git and VCS myself, and I have /not/ done anything like a comprehensive review of VCS's.  But here's my take on why I recommend using git, and not some other version.
+Git is not the only VCS, not by a long shot.  There are many, many other alternatives out there, and while some are expensive proprietary software packages aimed at large companies, some good options are also free and open-source, like Subversion or Mercurial.  I am still a relative novice to git and VCS myself, and I have /not/ done anything like a comprehensive review of VCS's.  But here's my take on why I recommend using git, and not some other software package.
 
 1. Git is /fast/.  Some VCS's take some time to perform even the standard operations. One of the big advantages of git compared to many other systems is that it is very very fast. I believe this is critical to practical use, especially for researchers, because it means there is relatively little "overhead" to using the system.  If the VCS slows you down, then you will not be encouraged to use it. If you get a stroke of inspiration and want to start a branch, the last thing you want is to have to sit around waiting for your VCS before you can start working on it.
-2. Git is /local/. One of the main reasons that git is fast is that it does not require talking to a server. Some VCS's require you to store a "master" version on a server somewhere, and when you want to update that version with some new work, you have to connect to the served to upload your changes. There are many remote hosting options for git (more on that later), but normally all the changes are encapsulated on your own machine, and you can use it for your personal uses without /ever/ having to access the internet (once you download and install git for the first time, of course). This has a lot of practical advantages, the key being that you can work anywhere and use every function of git, even when you don't have an internet connection.
+2. Git is /local/. One of the main reasons that git is fast is that it does not require talking to a server. Some VCS's require you to store a "master" version on a server somewhere, and when you want to update that version with some new work, you have to connect to the server to upload your changes. There are many remote hosting options for git (more on that later), but normally all the changes are encapsulated on your own machine, and you can use it for your personal uses without /ever/ having to access the internet (once you download and install git for the first time, of course). This has a lot of practical advantages, the key being that you can work anywhere and use every function of git, even when you don't have an internet connection.
 3. Git is /flexible/. Git differs from lots of other VCS's in its basic structure. I won't go into that now, but the bottom line is that one result of this structure is that it allows you to pick and choose how to use it to best fit your needs. Some people work on large, complex software projects where they have many many collaborators, but they need a way to keep tabs on changes, and not just allow every person to make whatever changes they want. Software developers have come up with many different models for how to deal with these kinds of interactions, and different companies and communities do things in different ways. Likewise, in research, people have different ways that they like to work, and will have different ideas about what kinds of workflows will work for them.  With git, you are not committed to very much at all, and you can pretty much come up with a workflow that fits how you would like to work. In my mind, this is a huge advantage.
 4. Git is /powerful/. While the basic operations of git are simple enough to learn and start using in a single sitting, it has a lot of depth. You may change your tastes and later discover that a different VCS works better for you. But you will never "outgrow" git. It is used in very large, commercial-grade projects that exceed the complexity of most research projects by several orders of magnitude. It's very unlikely that you will get to a point in your own research career when you will need to switch to a system that does /more/ than git.  And if that does happen, you will probably not find that need covered by another system, and will probably have to code up your own system. And since git is open-source, you might be able to add that functionality yourself, or encourage the community to do so.
 * Why these tutorials?
