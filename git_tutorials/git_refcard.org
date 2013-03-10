@@ -1,0 +1,70 @@
+#+TITLE:     my git reference card
+#+AUTHOR:    
+#+EMAIL:     
+#+DATE:      
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+LATEX_CLASS_OPTIONS: []
+#+LATEX_HEADER: \usepackage{baskervald}
+#+LATEX_HEADER: \usepackage{arydshln}
+#+LATEX_HEADER: \usepackage{color}
+#+LATEX_HEADER: \usepackage[margin=0.5in]{geometry}
+#+LATEX_HEADER: \usepackage{multicol}
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+#+BEGIN_LaTeX
+\thispagestyle{empty}
+\pagestyle{empty}
+%\setlength{\pdfpagewidth}{13in}
+%\begin{multicols}{2}
+#+END_LaTeX
+
+* Routine
+#+ATTR_LaTeX: align=llp{2.5in}
+| Task                | Command                                   | Notes                                                                  |
+|---------------------+-------------------------------------------+------------------------------------------------------------------------|
+| Start new repo      | $ =git init=                              | - just do this in the new directory                                    |
+|                     |                                           | - don't nest repos!                                                    |
+| Check on things     | $ =git status=                            | tells you what's up                                                    |
+|                     | $ =git ls-files=                          | shows files currently being tracked                                    |
+| Add stuff           | $ =git add <file>=                        | instead of =<file>=, you can do:                                       |
+|                     |                                           | - period to do /everything/                                            |
+|                     |                                           | - subfolder name to do everything in that folder                       |
+| Update stuff        | same as adding                            | can use =git commit -a= to commit all changes to already-tracked files |
+| Delete stuff        | $ =git rm <file>=                         | need to do this even if file deleted using "normal" means              |
+| Move stuff          | $ =git mv <file> <newlocation>=           | same as =git add <newloc>= and =git rm=                                |
+| Rename stuff        | same as moving!                           |                                                                        |
+| Commit changes      | $ =git commit=                            | opens editor to commit message                                         |
+| Commit with message | $ =git commit -m= \texttt{"message here"} | adds message without opening editor                                    |
+* Oops!
+#+ATTR_LaTeX: align=llp{2.5in}
+| Task                                      | Command                    | Notes                                                                                                           |
+|-------------------------------------------+----------------------------+-----------------------------------------------------------------------------------------------------------------|
+| Recover deleted file (unstaged)           | $ =git checkout -- <file>= | this works before the change is committed -- if =git status= tells you a file was deleted and you want it back! |
+| Take changes (adds or rms) out of staging | $ =git reset HEAD <file>=  | this takes changes from the "staging" area, but does not undo the changes!                                      |
+| Messed up recent =commit=                 | $ =git commit --amend=     | /after/ doing some more adds/rms (or just with a new message), updates previous commit with new stuff           |
+|                                           |                            | [[http://git-scm.com/book/en/Git-Basics-Undoing-Things][see here for some details]]                                                                                       |
+* Dealing with history
+#+ATTR_LaTeX: align=llp{2.5in}
+| Task                          | Command                                           | Notes                                                                                                                                                                 |
+|-------------------------------+---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Peek at history               | $ =git log=                                       | hit "q" to get back to regular prompt                                                                                                                                 |
+|                               | $ =git log --pretty=oneline=                      | more condensed view                                                                                                                                                   |
+|                               | $ \texttt{git log --pretty=format:"\%h \%ad \%s"} | REALLY HANDY view! Use =%ar= for "relative" date, or \texttt{--date=short} for just dates, etc.                                                                       |
+|                               | $ =git log --since=<time>=                        | lots of options for =<time>=                                                                                                                                          |
+|                               |                                                   | - \texttt{"yesterday"}, \texttt{"1 week ago"}, \texttt{1.week} or \texttt{"1.week"}, \texttt{"2013-01-30"}, \texttt{"10 minutes ago"}, \texttt{"last Tuesday"}, etc.! |
+|                               |                                                   | [[http://www.alexpeattie.com/blog/working-with-dates-in-git/][see here for some more details]]                                                                                                                                        |
+| History of just one file      | $ =git log <file>=                                | only shows commits that affected =<file>=                                                                                                                             |
+| Show history with dates/times | $ =git log=                                       |                                                                                                                                                                       |
+| "Rewind" temporarily          | $ =git checkout <hash>=                           | the =<hash>= is (at least) the first several characters of the long SHA1 hash code "address" for a particular commit you want to rewind to                            |
+|                               |                                                   | NOTE: must first have a clean (committed) working branch (e.g., "master")                                                                                             |
+| Go back to the current state  | $ =git checkout master=                           | After you're done messing around with the "rewind"                                                                                                                    |
+
+  
+#+LaTeX: %\end{multicols}
