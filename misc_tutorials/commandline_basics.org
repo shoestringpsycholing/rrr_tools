@@ -1,0 +1,45 @@
+#+TITLE:     Command-line Basics
+#+AUTHOR:    Scott Jackson
+#+EMAIL:     shoestringpsycholing1@gmail.com
+#+DATE:      Last updated: \today
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+LATEX_CLASS: blank-article
+#+LATEX_HEADER: \usepackage[latin1]{inputenc}
+#+LATEX_HEADER: \usepackage[T1]{fontenc}
+#+LATEX_HEADER: \usepackage{fixltx2e}
+#+LATEX_HEADER: \usepackage[colorlinks=true, citecolor=black, linkcolor=black, urlcolor=blue]{hyperref}
+#+LATEX_HEADER: \usepackage[style=authoryear, backend=bibtex]{biblatex}
+#+LATEX_HEADER: \usepackage{baskervald}
+#+LATEX_HEADER: \usepackage{graphicx}
+
+
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+\newpage
+* Overview
+  - What's in this tutorial? :: This is intended for people who are completely new to the command line. I will go over:
+    - What the command line is.
+    - Why you shouldn't be afraid or confused by it.
+    - What you can do with it (general).
+    - A couple of handy things you can do from the command line.
+  - What do I need to start? :: You need a computer.  That's it!
+  - How long will this take? :: 
+* What's a command line?
+** GUIs and not-so-GUIs
+These days, most computers that the average person interacts with are run using a /graphical user interface/ (GUI, pronounced like /gooey/). Things you click on, drag around, and so on fall in this category.  Maybe you click on an icon to start your web browser.  That's a GUI.  Maybe you click on a menu in a program like Microsoft Word to show you different options you can select.  That's a GUI.  Maybe you click on a folder icon and get a window where you can browse around for a file you're looking for, and then open it from there.  Also GUI.  GUIs are extremely common!
+
+So what's the alternative? You may or may not be old enough to remember a time when people had home computers with a different operating system, like DOS, and the only way to run a program or do other things was to type in commands.  This is the general concept of the /command line/: a place where instead of clicking on icons or other graphical widgets, you type in commands, which the computer then executes.
+** Different command lines
+Sometimes people talk about "the" command line, but there are a number of different programs and interfaces that use a command-line interface.  When people talk about "the" command line, they usually mean some general-purpose program on your computer that you can use to run commands in your operating system.  It lets you browse for files, run programs, and many many other things. In short, anything you can do with the GUI in your operating system (like look for files, open files, run programs, etc.), you can do with "the" command line.
+
+But other programs also have command-line interfaces.  For example, the popular and powerful [[http://www.r-project.org/][R statistical analysis program]] basically runs with a command-line interface, where you type in commands in the special R language in order to run statistical analyses, graph data and results, etc.  But all command-line programs are just that: programs.  The command line for your operating system is just a program, and so it understands certain commands and not others.  R is a program, which understands different commands.  Furthermore, the command line interface to Windows (usually a program called =cmd=) has some differences with the command lines for Mac or Linux (which are both based on the Unix command line).  The point is that there are lots of places where you might run into a command-line interface, but exactly what you can do with that command line, and how you do it, may differ.
+* Why would I want to use a command line?
+
+* A few handy basics
