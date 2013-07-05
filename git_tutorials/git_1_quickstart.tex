@@ -1,21 +1,13 @@
-% Created 2013-03-04 Mon 12:25
-\documentclass[11pt]{article}
+% Created 2013-03-29 Fri 08:22
+\documentclass{article}
 \usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{fixltx2e}
-\usepackage{graphicx}
-\usepackage{longtable}
-\usepackage{float}
-\usepackage{wrapfig}
-\usepackage{soul}
-\usepackage{textcomp}
-\usepackage{marvosym}
-\usepackage{wasysym}
-\usepackage{latexsym}
-\usepackage{amssymb}
-\usepackage{hyperref}
-\tolerance=1000
+\usepackage[colorlinks=true, citecolor=black, linkcolor=black, urlcolor=blue]{hyperref}
+\usepackage[style=authoryear, backend=bibtex]{biblatex}
 \usepackage{baskervald}
+\usepackage{graphicx}
+
 \providecommand{\alert}[1]{\textbf{#1}}
 
 \title{Git Quickstart}
@@ -35,19 +27,20 @@
 \vspace*{1cm}
 
 
+\newpage
 \section{Overview}
 \label{sec-1}
 
 \begin{description}
 \item[What's in this tutorial?] This takes you through all of the basic commands you need to get started using git right away. You will learn:
-\begin{enumerate}
+\begin{itemize}
 \item How to start tracking a project with git.
 \item How to commit changes to a project.
 \item How to manage files with git.
 \item How to look at the history of commits.
 \item How to ``rewind the tape'' on a project.
 \item How to customize your setup.
-\end{enumerate}
+\end{itemize}
 \item[What do I need to start?] You need a computer and the ability to install software on it. I will briefly address installation.  If you have never worked with a command-line program before, then I highly recommend going to my miscellaneous tutorial on \href{https://github.com/shoestringpsycholing/rrr_tools/misc_tutorials/}{using the command line}.
 \item[How long will this take?] Once you have things installed, you should be able to get through this entire tutorial in about an hour.
 \end{description}
@@ -56,10 +49,10 @@
 
 Installation should be a breeze. Just go to \href{http://git-scm.com}{the main git website}, and follow the links for downloads, and select the operating system you have.
 
-\textbf{NOTE ON WINDOWS}: Windows has a very sad little command-line program called \texttt{cmd.exe}. You can start one by typing ``cmd'' in the Start menu search bar (if you're in Windows 7), or in the ``Run\ldots{}'' field in the start bar in earlier versions of Windows. The problem is that git needs some utilities that are not provided by this basic Windows interface, so you have to make some choices during installation. You can pretty much just select the default options it gives you, but then you are faced with a three-way choice:
+\textbf{NOTE ON WINDOWS}: Windows has a very sad little command-line program called \texttt{cmd.exe}. You can start one by typing ``cmd'' in the Start menu search bar (if you're in Windows 7), or in the ``Run\ldots{}'' field in the start bar in earlier versions of Windows. The problem is that git needs some utilities that are not provided by this basic Windows interface, so you have to make some choices during installation. You can pretty much just select the default options it gives you, but you will be faced with a three-way choice:
 \begin{description}
 \item[Use Git Bash only] The installer tells you this is the ``most conservative choice.'' Basically this leaves everything alone with the default Windows command line, and installs a special command line program called the ``Git Bash.''\footnote{''Bash'' stands for \href{http://en.wikipedia.org/wiki/Bash_(Unix_shell)}{Bourne-again shell}, and is a popular and common command-line interface originally for Unix systems.
- } This basically means that git commands will only work in the Git Bash, not in your default command prompt.  Especially if you are just starting out with git, I recommend this, since it's the most ``lightweight'' option.
+ } This means that git commands will only work in the Git Bash, not in your default command prompt.  Especially if you are just starting out with git, I recommend this, since it's the most ``lightweight'' option.
 \item[Run Git from the Windows Command prompt] If you have reason or interest in installing an alternative command-line program such as \href{http://www.cygwin.com/}{Cygwin}, you may want this option. Cygwin basically gives you a Unix-style command-line program, including a bunch of other (optional) tools. If you have Cygwin installed, selecting this option means that you can run git from a Cygwin shell.  If you don't have Cygwin (or something similar) installed, don't bother.
 \item[Run Git and included Unix tools from the Windows Command Prompt] This option comes with a warning that you should do this ``only if you understand the implications.'' Personally, I don't see the point, unless you know enough about the other tools of the standard Windows command-line that you know you don't need a bunch of them.
 \end{description}
@@ -67,7 +60,7 @@ Installation should be a breeze. Just go to \href{http://git-scm.com}{the main g
 You may also need to make a decision about ``line endings.'' In a nutshell, different operating systems (like Windows and Mac) use different symbols to represent the end of a line in a text file (don't ask me why!). The installer makes recommendations, in order to help manage cross-platform projects.  I recommend you follow the recommendations!\footnote{In Windows, the top option ``Checkout Windows-style, commit Unix-style line endings'' is recommended. Because Mac is based on Unix, I assume the second option (``Checkout as-is, commit Unix-style line endings'') is preferred on Mac (and Linux), but if you know better, let me know!
  }
 
-When installation is complete, you should be able to open up a command line program (in Windows, either the Git Bash or a Cygwin Bash), type in \texttt{git version}, and have it tell you the version number of git that you have installed. If you get a message saying that a program called ``git'' doesn't exist, then the installation didn't quite go right.
+When installation is complete, you should be able to open up a command line program (in Windows, either the Git Bash or a Cygwin Bash), type \texttt{git version} and hit Enter at the prompt, and it should tell you the version number of git that you have installed. If you get a message saying that a program called ``git'' doesn't exist, then the installation didn't quite go right.  Try again, and if you continue to run into problems, find a slightly more tech-savvy friend, or try googling for an answer.
 \section{Initial set-up}
 \label{sec-3}
 
@@ -90,7 +83,7 @@ Why stick with the command line? As you will see shortly, the everyday git comma
 So here's a basic example of how you might interact with git in a normal day of work:
 \begin{enumerate}
 \item Decide what project you want to work on for the moment.
-\item Start a command line program that can run git.
+\item Start a command line program that can run git. (e.g., the Git Bash, a Cygwin shell in Windows, a Terminal on a Mac, or a regular shell in Linux)
 \item (Assuming the project is already being tracked in git) Run \texttt{git status} to check on whether you have any untracked changes or anything else you need to clean up.
 \item Do your work!
 \item When you hit some kind of stopping point, run \texttt{git status} again to remind yourself what files you worked on, added, removed, or modified.
@@ -100,18 +93,18 @@ So here's a basic example of how you might interact with git in a normal day of 
 \item Rinse and repeat!
 \end{enumerate}
 
-This looks like a lot of steps, but it's the steps 5 through 8 that you'll do over and over, and they take about a minute or less, depending on how detailed you want to make the commit message.  But the basic idea is that you have some kind of command-line program open while you do your work, so when it's time to commit changes, you just pop over, type a line or two, and pop back to your work.\footnote{And if you're working in Emacs, you can run the command-line shell within Emacs, so you don't even need to leave Emacs to use git.
+This looks like a lot of steps, but it's the steps 5 through 8 that you'll do over and over, and they take about a minute or much less, depending on how detailed you want to make the commit message.  But the basic idea is that you have some kind of command-line program open while you do your work, so when it's time to commit changes, you just pop over, type a line or two, and pop back to your work.\footnote{And if you're working in Emacs, you can run the command-line shell within Emacs, so you don't even need to leave Emacs to use git.
  } The point is to keep your interaction with git unobtrusive and not distracting from your real work!
 
 Now let's dive into the details, so you can start using it yourself.
 \section{Start tracking with \texttt{git init}}
 \label{sec-5}
 
-I suggest you follow along with this tutorial as we go. The first step is to start a command line where you can run git.  If can type \texttt{git version}, hit Enter/Return, and get a version number back, you're all set.
+I suggest you follow along with this tutorial as we go. The first step is to start a command line where you can run git.  If you can type \texttt{git version}, hit Enter/Return, and get a version number back, you're all set.
 
 Now, it's time to create a project that you want to track.  I \emph{highly} recommend starting a fresh new folder instead of starting with a folder with a lot of important files already in it.  For the purposes of this tutorial, we'll just call the folder ``gitplay''.
 
-Next, you need to navigate your command line to this new folder.  Depending on how you installed git, you may have the option to right-click (or control-click in Mac) and select ``Git Bash here'' to start a command line in that folder right away. If you need to brush up on the basics of changing directories in the command line, check out my brief tutorial on the command line in the miscellaneous section.
+Next, you need to navigate your command line to this new folder.  Depending on how you installed git, you may have the option to right-click (or control-click in Mac) on the folder and select ``Git Bash here'' to start a command line in that folder right away. If you need to brush up on the basics of changing directories in the command line, check out my brief tutorial on the command line in the miscellaneous section.
 
 Now, all you need to do to start tracking that folder (and all of its contents, including subfolders) is to type this at the prompt and hit Return:
 
@@ -139,11 +132,16 @@ This is a handy command that I use very frequently. It will tell you a number of
 git add mytext.txt
 \end{verbatim}
 
-Git won't tell you anything in response, but this file has now been \emph{staged}. Run \texttt{git status} again, and it will reflect this change.  Note that it now says that there are ``changes \emph{to be} committed.''  In other words, the changes are not committed yet! Here's a sketch of how this works.
+Git won't tell you anything in response, but this file has now been \emph{staged}. Run \texttt{git status} again, and it will reflect this change.  Note that it now says that there are ``changes \emph{to be} committed.''  In other words, the changes are not committed yet! Figure \ref{fig-flow} gives a sketch of how this works.
 
 
 
-\includegraphics[width=.9\linewidth]{commitflow1.png}
+\begin{figure}[h!]
+\caption{Basic flow of a \texttt{commit} in git}
+\label{fig-flow}
+\centering
+\includegraphics[width=4.5in]{commitflow1.png}
+\end{figure}
 
 So by using \texttt{git add}, you've told git to add the new file to the staging area, and then the next time you run \texttt{git commit}, it takes everything in the staging area and adds it to the new version of your project.  Let's do that now:
 
@@ -283,7 +281,7 @@ Here's how that works. You just go to the top folder in the repo, and add a text
 junk/
 \end{verbatim}
 
-The asterisk is a ``wildcard'' character, so the first line says ``anything that ends with a tilde.''  The second line means ``anything that ends with .aux''. And the third line says ``the folder called junk (and all its contents)''.  All of the files matching these descriptions will be completely invisible to git. This is a very flexible and powerful way to keep your git repos clean and to simplify your processes of adding and tracking files.  You can also name particular files, if there's some reason there are specific files that you want to keep around but always ignore.
+The asterisk is a ``wildcard'' character, so the first line says ``anything that ends with a tilde.''  The second line means ``anything that ends with .aux''. And the third line says ``the folder called junk (and all its contents)''.  All of the files matching these descriptions will be completely invisible to git, if you updated your \texttt{.gitignore} file to contain these lines. This is a very flexible and powerful way to keep your git repos clean and to simplify your processes of adding and tracking files.  You can also name particular files, if there's some reason there are specific files that you want to keep around but always ignore.
 \subsection{\texttt{git config}}
 \label{sec-10-2}
 
@@ -302,7 +300,7 @@ Git is a powerful tool for reproducible research, providing a kind of magic time
 
 \begin{description}
 \item[\texttt{git init}] Start tracking changes in a folder (and all its subfolders) by ``initializing'' it as a git repository.
-\item[\texttt{git add <file>}] Add a file (or changes to a file) to the set of changes that will be included in the next commit you make (aka the ``staging area'').  Use ``=git add .='' to add \emph{everything}.
+\item[\texttt{git add <file>}] Add a file (or changes to a file) to the set of changes that will be included in the next commit you make (aka the ``staging area'').  Use a period in the place of \texttt{<file>} to add \emph{everything} (everything, that is, except for the stuff you tell git to ignore in your \texttt{.gitignore} file).
 \item[\texttt{git rm <file>}] The opposite of \texttt{add}, this removes files from the history, which both deletes the file and adds this deletion to the changes to be committed. Note that because git is tracking your history, these deletions are 100\% recoverable.
 \item[\texttt{git commit}] This command creates a new snapshot in your history, and everything in the staging area represents all the changes to be made part of this snapshot.  Commits also record the time, date, and author of the commit. Commits also have messages attached, to help you understand the history later. By default, git will open up a text editor for you to make the commit message, but if you use the \texttt{-m} option, you can type it directly as part of the command. Finally, the \texttt{-a} option also tells git to \texttt{add} any currently-tracked files, which lets you skip a \texttt{git add} command if you are just committing updated files.
 \item[\texttt{git status}] Handy command to tell you what the current state is (whether you have uncommitted changes, etc.).
